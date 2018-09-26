@@ -1,0 +1,111 @@
+<!--Header-->
+<div>
+  <h6 style="text-align: center;"><strong>{{copyright}}</strong></h6>
+  <p style="text-align: center;">{{subText}}</p>
+  <button id="marvelbtn" name="marvelbtn" type="button" class="btn btn-success center-block" onclick='window.location.href="/marvelcharacters"'> 
+    <strong>GET CHARACTERS</strong>
+  </button>
+  <br>
+</div>
+
+<div class="col-sm-1">
+</div>
+<!--End Of Header-->
+
+<!--Beginning of the Marvel Character Name Panel-->
+<div class="col-sm-6" id="marvelCharName">
+  <div id="marvelcharacters" class="border" style="overflow-y:scroll; height:470px;">
+    <ul class="custom-bullet">
+          {{#each marvelnames}}
+          <li class="active">
+          <a id="items"  href="{{this}}"><strong>{{this}}</strong></a>
+        </li>
+      {{/each}}
+    </ul>    
+  </div >
+</div> <!--End of the Marvel Character Name Panel-->
+
+<div class="col-sm-1">
+</div>
+
+<!--Beginning of the Marvel Character Detail Panel-->
+<div class="col-sm-6" id="marCharDetails">
+   <div id="marveldetails" style="overflow-y:scroll; height:470px;">
+     <h3 style="text-align: center;"><strong>{{charactername}}</strong></h3>
+     <img src="{{marvelimage}}" class="rounded mx-auto center-block"  style="border: 1.5px solid #fc4848; visibility: {{visStatus}};" width="150" height="150">
+     <br>
+     <h5><strong>{{storytitle}}</strong></h5>
+     
+     {{#each storynames}}
+     <p style=" font-size: 12px">{{this}}</p>
+     {{/each}}
+     <br>
+     
+     <h5><strong>{{comictitle}}</strong></h5>
+     {{#each comics}}
+     <p style=" font-size: 12px">{{this}}</p>
+     {{/each}}
+   </div>
+ </div> <!--End of the Marvel Character Detail Panel--> 
+
+<style>
+  #marvelCharName {
+    border-radius: 25px;
+    border: 2px solid rgb(202, 202, 202);
+    padding: 20px; 
+    width: 400px 
+  }
+
+  #marCharDetails {
+    border-radius: 25px;
+    border: 1.5px solid rgb(202, 202, 202);
+    padding: 20px;
+    width: 400px 
+  }
+
+  /*Styling the Marvel Character Names Panel */
+  #marvelcharacters::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  #marvelcharacters::-webkit-scrollbar {
+   	width: 12px;
+   	background-color: rgb(255, 255, 255);
+  }
+
+  #marvelcharacters::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(226, 226, 226);
+  }
+
+  .custom-bullet li:before {
+    content: "*";
+    font-family: 'Glyphicons Halflings';
+    font-size: 12px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -17px;
+    color: #000000;
+  }
+  
+  /*End of Styling the Marvel Character Names Panel */
+
+  /*Start of Styling the Marvel Character Details Panel */
+  #marveldetails::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  #marveldetails::-webkit-scrollbar {
+   	width: 12px;
+   	background-color: rgb(255, 255, 255);
+  }
+
+  #marveldetails::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(226, 226, 226);
+  }
+  /*End of Styling the Marvel Character Details Panel */
+
+</style>
