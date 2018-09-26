@@ -102,14 +102,21 @@ app.use(function(req, res){
           charTitle = body.data.results[i].name;
       
           charImg = body.data.results[i].thumbnail.path + '/standard_medium.' + body.data.results[i].thumbnail.extension;
-
-          for(var j = 0; j < body.data.results[i].stories.items.length; j++){
+          if(body.data.results[i].stories.items.length === 0){
+            storiesArr[0] = "No Stories Available..." 
+          }else{
+            for(var j = 0; j < body.data.results[i].stories.items.length; j++){
               storiesArr[j] = body.data.results[i].stories.items[j].name;
+            }
           }
-
-          for(var k = 0; k < body.data.results[i].comics.items.length; k++){
-              comicsArr[k] = body.data.results[i].comics.items[k].name;
-          }
+          
+          if(body.data.results[i].comics.items.length === 0){
+              comicsArr[0] = "No Comics Available..." 
+            }else{
+               for(var k = 0; k < body.data.results[i].comics.items.length; k++){
+            	 comicsArr[k] = body.data.results[i].comics.items[k].name;	 
+               }
+            }       	  
       }
   }
 
